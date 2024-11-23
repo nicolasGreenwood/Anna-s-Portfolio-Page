@@ -1,25 +1,42 @@
-/*-----------------------Lenis Smooth Scrolling Configuration--------------------------------------------*/
+/*---------------------------------------Lenis Smooth Scroll Config--------------------------------------------------*/
 
+// Initialize Lenis
 const lenis = new Lenis({
-  
+  autoRaf: true,
 });
 
+// Listen for the scroll event and log the event data
 lenis.on('scroll', (e) => {
-  /*console.log(e);*/
+  console.log(e);
 });
 
-function raf(time) {
-  lenis.raf(time);
-  requestAnimationFrame(raf);
-}
+let lenisContainers = document.querySelectorAll(".lenis-containers");
 
-requestAnimationFrame(raf);
+lenisContainers.forEach((container) => {
+  const lenisCont = new Lenis({
+    autoRaf: true,
+    wrapper: container,
+    overscroll: true,
+  })
+});
 
-if (window.innerWidth < 1000) {
-  document.querySelector(".concerts-column").removeAttribute("data-lenis-prevent");
-  document.querySelector(".releases-column").removeAttribute("data-lenis-prevent");
-  document.querySelector(".special-events-column").removeAttribute("data-lenis-prevent");
-};
+/*-------------------------------------Random Sound Play Script-------------------------------------------------------------*/
+
+const randomNotes = document.querySelectorAll(".random-notes");
+const playButton = document.getElementById("play-sound");
+
+window.addEventListener("mousemove", (e) => {
+	playButton.style.top = `${e.clientY}px`;
+	playButton.style.left = `${e.clientX}px`;
+})
+
+playButton.addEventListener("click", () => {
+	const randomNoteIndex = Math.round(
+	Math.random() * (randomNotes.length - 0) + 0
+);
+	randomNotes[randomNoteIndex].play();
+	playButton.style.display = "none";
+})
 
 /*--------------------------------Reveal-on-Scroll Animation via IntersectionObserver API-----------------------------*/
 
@@ -47,24 +64,80 @@ function ioCallback (entries) {
 /*------------------------------Dynamic Navigation Bar-----------------------------------------------*/
 
 const topNav = document.querySelector(".topnav");
+
 let oldScrollPosition = 0;
 
+document.addEventListener("mousemove", (e) => {
+  let mouseVert;
+  mouseVert = e.clientY;
+  
+  if (mouseVert < 10) {
+    topNav.style.transform = "translateY(0%)";
+  }
+});
+
 window.addEventListener('scroll', function (e) {
-  let currentScrollPosition = window.pageYOffset;
+  let currentScrollPosition = window.scrollY;
   
   if (oldScrollPosition - currentScrollPosition <= -5) {
     topNav.style.transform = "translateY(-100%)";
     } else if (oldScrollPosition - currentScrollPosition >= 5) {
       topNav.style.transform = "translateY(0%)";
-    }
-  oldScrollPosition = window.pageYOffset;
+    };
+  oldScrollPosition = window.scrollY;
+});
+
+/*-------------------------------Performance Slideshow Script------------------------------------------------*/
+
+const upButton = document.getElementById("yt-slide-up");
+const downButton = document.getElementById("yt-slide-down");
+const slides = document.querySelectorAll(".yt-slide");
+const slideshowContainer = document.querySelector(".slideshow-container");
+
+let slideIndex = 1;
+
+upButton.style.opacity = "0.5";
+upButton.style.pointerEvents = "none";
+
+upButton.addEventListener("click", () => {
+	slideIndex--;
+	slides.forEach((slide) => {
+		slide.style.transform += "translateY(100%)";
+	});
+	if (slideIndex === 1) {
+		upButton.style.opacity = "0.5";
+		upButton.style.pointerEvents = "none";
+	} else {
+		upButton.style.opacity = "1";
+		upButton.style.pointerEvents = "auto";
+		downButton.style.opacity = "1";
+		downButton.style.pointerEvents = "auto";
+	}
+});
+
+downButton.addEventListener("click", () => {
+	slideIndex++;
+	slides.forEach((slide) => {
+		slide.style.transform += "translateY(-100%)";
+	});	
+	if (slideIndex === slides.length) {
+		downButton.style.opacity = "0.5";
+		downButton.style.pointerEvents = "none";
+	} else {
+		downButton.style.opacity = "1";
+		downButton.style.pointerEvents = "auto";
+		upButton.style.opacity = "1";
+		upButton.style.pointerEvents = "auto";
+	}
 });
 
 /*-------------------------GSAP "Live Performances" Text Animation Timeline---------------------------------*/
 
+gsap.registerPlugin(ScrollTrigger);
+
 let livePerformTimeline = gsap.timeline({
   scrollTrigger: {
-    trigger: ".live-performances-container",
+    trigger: "#about-section",
     start: "top center",
     end: "bottom center"
   }
@@ -117,41 +190,50 @@ livePerformTimeline.to("#ces-of-perform", {
   duration: 2
 });
 
-/*----------------------GSAP Scroll Animations for Albums and Singles--------------------------------------------*/
+/*----------------------------------------Album Slideshow Script---------------------------------------------------*/
 
-gsap.registerPlugin(ScrollTrigger);
+const leftButton = document.querySelector(".album-slide-left");
+const rightButton = document.querySelector(".album-slide-right");
+const albumSlides = document.querySelectorAll(".album-slide");
+const albumSlideshowContainer = document.querySelector(".albums-container");
 
-const albumSlides = gsap.utils.toArray('.album-slide');
+let albumSlideIndex = 1;
 
-gsap.to(albumSlides, {
-  xPercent: -100 * (albumSlides.length - 1),
-  ease: "none",
-  scrollTrigger: {
-    trigger: '.albums-container',
-    pin: true,
-    scrub: 0.5,
-    snap: {
-      snapTo: 1/(albumSlides.length - 1),
-      duration: { min: 0.5, max: 1 },
-      delay: 0,
-      directional: false
-    },
-    end: () => "+=" + document.querySelector('.albums-container').offsetWidth
-  }
+leftButton.style.opacity = "0.5";
+leftButton.style.pointerEvents = "none";
+
+leftButton.addEventListener("click", () => {
+	albumSlideIndex--;
+	albumSlides.forEach((slide) => {
+		slide.style.transform += "translateX(100%)";
+	});
+	if (albumSlideIndex === 1) {
+		leftButton.style.opacity = "0.5";
+		leftButton.style.pointerEvents = "none";
+	} else {
+		leftButton.style.opacity = "1";
+		leftButton.style.pointerEvents = "auto";
+		rightButton.style.opacity = "1";
+		rightButton.style.pointerEvents = "auto";
+	}
 });
 
-gsap.to('.single-slide', {
-  scrollTrigger: {
-    trigger: '.singles-container',
-    start: 'top bottom',
-    end: 'bottom top',
-    snap: {
-      snapTo: 1/6,
-      duration: {min: 0.1, max: 1},
-      delay: 0
-    }
-  }
+rightButton.addEventListener("click", () => {
+	albumSlideIndex++;
+	albumSlides.forEach((slide) => {
+		slide.style.transform += "translateX(-100%)";
+	});	
+	if (albumSlideIndex === albumSlides.length) {
+		rightButton.style.opacity = "0.5";
+		rightButton.style.pointerEvents = "none";
+	} else {
+		rightButton.style.opacity = "1";
+		rightButton.style.pointerEvents = "auto";
+		leftButton.style.opacity = "1";
+		leftButton.style.pointerEvents = "auto";
+	}
 });
+
 
 /*------------------------------------GSAP Scroll Image Gallery----------------------------------------------------*/
 
@@ -162,17 +244,17 @@ images.forEach((item) => {
 })
 
 let imageQuantity = document.querySelector(".gallery-section").children.length;
-let scrollTriggerEndValue = imageQuantity * window.innerHeight * 2;
+let scrollTriggerEndValue = imageQuantity * window.innerHeight;
 let xTransformValue = window.innerWidth;
 let yTransformValue = window.innerHeight * -1;
 
 gsap.to(".gallery-section > img", {
   scrollTrigger: {
     trigger: ".gallery-section",
-    pin: true,
     start: "top top",
     end: `+=${scrollTriggerEndValue}`,
-    scrub: 2
+    scrub: 1,
+    pin: true,
   },
   x: xTransformValue,
   y: yTransformValue,
@@ -180,6 +262,7 @@ gsap.to(".gallery-section > img", {
   scale: 2,
   duration: 1,
   ease: "none",
+  yoyo: true,
   stagger: {
     each: 1,
     from: "end"
