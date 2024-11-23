@@ -5,11 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anna: A pianist</title>
     <link rel="stylesheet" type="text/css" href="styles.css" />
+    <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.16/dist/lenis.css" />
 </head>
 <body>
-  <div class="topnav">
+  <audio class="random-notes" controls>
+    <source src="https://cdn.pixabay.com/audio/2021/10/28/audio_5516a1d606.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio class="random-notes" controls>
+    <source src="https://cdn.pixabay.com/audio/2023/06/08/audio_aee5a647d3.mp3" type="audio/mpeg">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio class="random-notes" controls>
+    <source src="https://cdn.pixabay.com/audio/2023/03/21/audio_d763fc2f22.mp3">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio class="random-notes" controls>
+    <source src="https://cdn.pixabay.com/audio/2023/05/31/audio_59a706b40c.mp3">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio class="random-notes" controls>
+    <source src="https://cdn.pixabay.com/audio/2022/11/02/audio_0cf564a826.mp3">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio class="random-notes" controls>
+    <source src="https://cdn.pixabay.com/audio/2023/09/06/audio_0242810f43.mp3">
+    Your browser does not support the audio tag.
+  </audio>
+  <audio class="random-notes" controls>
+    <source src="https://cdn.pixabay.com/audio/2022/04/05/audio_c5c228d922.mp3">
+    Your browser does not support the audio tag.
+  </audio>
+  <button id="play-sound">Click for Sound</button>
+  <div class="topnav" role="navigation">
     <div class="logo-container">
-      <a href="#landing-section">
+      <a href="#landing-section" onclick="lenis.scrollTo('#landing-section')">
         <svg class="logo-signature" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="400, 150, 200, 300">
           <g fill="none" stroke="black" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
             <path d="M376.38592,223.72416c-23.0779,6.11062 -44.79556,18.80139 -58.13917,39.06232c-10.01103,15.20075 -14.90738,33.83427 -17.27408,51.70862c-2.89148,21.83772 -1.91283,48.25432 19.77678,60.43073c3.4849,1.9564 7.47143,3.29431 11.45084,3.74224c5.37308,0.6048 10.70493,-0.04148 15.9017,-1.46222c16.13519,-4.41119 29.95655,-16.07246 42.04283,-27.14221c23.86166,-21.85474 48.32879,-48.60799 58.69822,-79.94796c2.81262,-8.5007 4.39468,-17.68858 1.91189,-26.47503c-7.09891,-25.12266 -40.75242,-28.10623 -60.73591,-19.28275c-4.15339,2.38122 -5.31001,2.84812 -9.11126,5.82385c-2.37423,1.85861 -5.3768,4.60885 -7.50517,6.85157c-9.55036,10.06345 -26.86153,33.88545 -5.13235,41.04402" />
@@ -24,9 +54,9 @@
       </a>
     </div>
     <div class="navlinks-container">
-      <a href="#about-section">About</a>
-      <a href="#work-section">Work</a>
-      <a href="#contact-section">Contact</a>
+      <a href="#about-section" onclick="lenis.scrollTo('#about-section')">About</a>
+      <a href="#work-section" onclick="lenis.scrollTo('#work-section')">Work</a>
+      <a href="#contact-section" onclick="lenis.scrollTo('#contact-section')">Contact</a>
     </div>
   </div>
   <section id="landing-section">
@@ -49,39 +79,15 @@
       </svg></a>
   </section>
   <section id="about-section">
-    <div class="live-performances-container">
-      <div class="slideshow-container reveal-on-scroll">
-        <input type="radio" id="slide1" name="slide" value="slide1" />
-        <input type="radio" id="slide2" name="slide" value="slide2" />
-        <input type="radio" id="slide3" name="slide" value="slide3" checked />
-        <input type="radio" id="slide4" name="slide" value="slide4" />
-        <input type="radio" id="slide5" name="slide" value="slide5" />
-        <label for="slide1" class="one slide-label">
-          <div class="slide">
-            <iframe src="https://www.youtube.com/embed/8n3gHtgdR9Q?si=4V5OHjnQ8cc5d_G-" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </label>
-        <label for="slide2" class="two slide-label">
-          <div class="slide">
-            <iframe src="https://www.youtube.com/embed/b_SEl4gYKLU?si=a4njdiss7SVNtfoD" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </label>
-        <label for="slide3" class="three slide-label">
-          <div class="slide">
-            <iframe src="https://www.youtube.com/embed/RlClIMTlt-8?si=o0w054l4gFSPsfIc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </label>
-        <label for="slide4" class="four slide-label">
-          <div class="slide">
-            <iframe src="https://www.youtube.com/embed/6F58c8ojSbM?si=uRK-0nkLJWQu9eIN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </label>
-        <label for="slide5" class="five slide-label">
-          <div class="slide">
-            <iframe src="https://www.youtube.com/embed/XFNSss-l3ok?si=inhODeGiijOV6ajq" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-          </div>
-        </label>
+      <button id="yt-slide-down">&darr;</button>
+      <div class="slideshow-container">
+	      <iframe class="yt-slide" src="https://www.youtube.com/embed/wDchsz8nmbo?si=21qCE3Wjk7olGCX3" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	      <iframe class="yt-slide" src="https://www.youtube.com/embed/K4TOrB7at0Y?si=HLIy__t0NyFZGyRm" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	      <iframe class="yt-slide" src="https://www.youtube.com/embed/EngW7tLk6R8?si=W1BcEy-EI37czIeP" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	      <iframe class="yt-slide" src="https://www.youtube.com/embed/ScMzIvxBSi4?si=1xPNzyM4DxoG6TMV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+	      <iframe class="yt-slide" src="https://www.youtube.com/embed/X-dMOvEOQiM?si=4a5YUiARxKbnAvMN" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
       </div>
+      <button id="yt-slide-up">&uarr;</button>
       <div class="live-perfomances-svg-container">
         <svg class="live-perfomances-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" width="500" height="400" viewBox="300, 150, 600, 300">
           <g xmlns="http://www.w3.org/2000/svg" fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
@@ -99,9 +105,9 @@
           </g>
         </svg>
       </div>
-    </div>
-    <div class="info-container reveal-on-scroll">
-      <div class="info-cell">
+  </section>
+  <section class="info-container">
+      <div class="info-cell reveal-on-scroll">
         <p class="info-cell-header">bio</p>
         <div class="info-cell-descript">
           <p>Anna Greenwood. 17 years old. Based in Central Serbia, in the heart of Europe. Tutored by Dr. Dragana Veljkovic, PhD in Music. Passionate about emotion in sound.</p>
@@ -131,14 +137,15 @@
           <p>Whether through teaching or playing, Anna's passion is and always will be touching hearts with the beauty of music. She envisions herself composing on her own and teaching children the art of music in the future.</p>
         </div>
       </div>
-    </div>
-    <img class="about-outro-img" src="https://i.ibb.co/nmmtY0T/soroush-karimi-p299-Mja-W-EM-unsplash-2.jpg" alt="Black and White Portrait">
   </section>
-  <section id="work-section">
-    <div class="albums-container">
-      <div class="album-slide">
+  <section class="about-outro-img reveal-on-scroll">
+    <img src="https://i.ibb.co/nmmtY0T/soroush-karimi-p299-Mja-W-EM-unsplash-2.jpg" alt="Black and White Portrait">
+  </section>
+  <section id="work-section" class="albums-container">
+    <button class="album-slide-left">&larr;</button>
+    <div class="album-slide">
         <div class="album-poster album-poster1 reveal-on-scroll"></div>
-        <div class="album-tracks-container reveal-on-scroll" data-lenis-prevent>
+        <div class="album-tracks-container lenis-containers reveal-on-scroll">
           <div class="song-container">
             <span class="song-title">I'm Walking in the Daffodils</span>
             <span class="song-artist">Anna Greenwood</span>
@@ -170,10 +177,10 @@
             <audio class="song-audio" controls></audio>
           </div>
         </div>
-      </div>
-      <div class="album-slide">
+    </div>
+    <div class="album-slide">
         <div class="album-poster album-poster2 reveal-on-scroll"></div>
-        <div class="album-tracks-container reveal-on-scroll" data-lenis-prevent>
+        <div class="album-tracks-container lenis-containers reveal-on-scroll">
           <div class="song-container">
             <span class="song-title">January Op. 37a No. 1</span>
             <span class="song-artist">Pyotr Ilyich Tchaikovsky</span>
@@ -205,10 +212,10 @@
             <audio class="song-audio" controls></audio>
           </div>
         </div>
-      </div>
-      <div class="album-slide">
+    </div>
+    <div class="album-slide">
         <div class="album-poster album-poster3 reveal-on-scroll"></div>
-        <div class="album-tracks-container reveal-on-scroll" data-lenis-prevent>
+        <div class="album-tracks-container lenis-containers reveal-on-scroll">
           <div class="song-container">
             <span class="song-title">Fantasia in D Minor</span>
             <span class="song-artist">Wolfgang Amadeus Mozart</span>
@@ -240,10 +247,10 @@
             <audio class="song-audio" controls></audio>
           </div>
         </div>
-      </div>
-      <div class="album-slide">
+    </div>
+    <div class="album-slide">
         <div class="album-poster album-poster4 reveal-on-scroll"></div>
-        <div class="album-tracks-container reveal-on-scroll" data-lenis-prevent>
+        <div class="album-tracks-container lenis-containers reveal-on-scroll">
           <div class="song-container">
             <span class="song-title">Nocturne Op. 9 No. 2</span>
             <span class="song-artist">Frédéric François Chopin</span>
@@ -275,53 +282,62 @@
             <audio class="song-audio" controls></audio>
           </div>
         </div>
-      </div>
     </div>
-    <div class="singles-container">
-      <div class="single-slide reveal-on-scroll">
+    <button class="album-slide-right">&rarr;</button>
+  </section>
+  <div class="singles-container">
+    <div class="single-slide reveal-on-scroll">
         <img class="single-cover" src="https://i.postimg.cc/L8fFhkNL/temp-Image0edbt-J.avif">
         <div class="song-container single">
           <span class="song-title">Piano Concerto No. 1</span>
           <span class="song-artist">Ludwig van Beethoven</span>
           <audio class="song-audio" controls></audio>
         </div>
-      </div>
-      <div class="single-slide reveal-on-scroll">
+    </div>
+  </div>
+  <div class="singles-container">
+    <div class="single-slide reveal-on-scroll">
         <img class="single-cover" src="https://i.postimg.cc/ZqTsZ6gT/temp-Image9o-Ff0-Z.avif">
         <div class="song-container single">
           <span class="song-title">Träumerei</span>
           <span class="song-artist">Robert Schumann</span>
           <audio class="song-audio" controls></audio>
         </div>
-      </div>
-      <div class="single-slide reveal-on-scroll">
+    </div>
+  </div>
+  <div class="singles-container">
+    <div class="single-slide reveal-on-scroll">
         <img class="single-cover" src="https://i.postimg.cc/gJ1fYn8N/temp-Image9-HHq3q.avif">
         <div class="song-container single">
           <span class="song-title">Clair de Lune</span>
           <span class="song-artist">Claude Debussy</span>
           <audio class="song-audio" controls></audio>
         </div>
-      </div>
-      <div class="single-slide reveal-on-scroll">
+    </div>
+  </div>
+  <div class="singles-container">
+    <div class="single-slide reveal-on-scroll">
         <img class="single-cover" src="https://i.postimg.cc/G2DXxzTx/temp-Imagehe-TAy-B.avif">
         <div class="song-container single">
           <span class="song-title">Le Coucou</span>
           <span class="song-artist">Louis-Claude Daquin</span>
           <audio class="song-audio" controls></audio>
         </div>
-      </div>
-      <div class="single-slide reveal-on-scroll">
-        <img class="single-cover" src="https://i.postimg.cc/Jhr8gD5X/temp-Image-Uk-BBSK.avif">
-        <div class="song-container single">
-          <span class="song-title">Waltz No. 2</span>
-          <span class="song-artist">Dmitri Dmitriyevich Shostakovich</span>
-          <audio class="song-audio" controls></audio>
-        </div>
+    </div>
+  </div>
+  <div class="singles-container">
+    <div class="single-slide reveal-on-scroll">
+      <img class="single-cover" src="https://i.postimg.cc/Jhr8gD5X/temp-Image-Uk-BBSK.avif">
+      <div class="song-container single">
+        <span class="song-title">Waltz No. 2</span>
+        <span class="song-artist">Dmitri Dmitriyevich Shostakovich</span>
+        <audio class="song-audio" controls></audio>
       </div>
     </div>
-    <div class="events-container">
+  </div>
+  <div class="events-container">
       <div class="events-flex-container">
-        <div class="concerts-column reveal-on-scroll" data-lenis-prevent>
+        <div class="concerts-column lenis-containers reveal-on-scroll">
           <header class="event-column-header">Concerts</header>
           <div class="event-cell">
             <img src="https://images.unsplash.com/photo-1507334608139-c6cbaabf6621?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="event-image">
@@ -354,7 +370,7 @@
             </footer>
           </div>
         </div>
-        <div class="releases-column reveal-on-scroll" data-lenis-prevent>
+        <div class="releases-column lenis-containers reveal-on-scroll">
           <header class="event-column-header">Upcoming Releases</header>
           <div class="event-cell">
             <img src="https://images.unsplash.com/photo-1459609336665-6ef3866c8930?q=80&w=2673&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="event-image">
@@ -397,7 +413,7 @@
             </footer>
           </div>
         </div>
-        <div class="special-events-column reveal-on-scroll" data-lenis-prevent>
+        <div class="special-events-column lenis-containers reveal-on-scroll">
           <header class="event-column-header">Special Events</header>
           <div class="event-cell">
             <img src="https://images.unsplash.com/photo-1617398745178-f40f24bbaa23?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="event-image">
@@ -421,26 +437,25 @@
           </div>
         </div>
       </div>
-    </div>
-  </section>
+  </div>
   <section id="contact-section">
-    <div class="contact-descript">
+    <div class="contact-descript reveal-on-scroll">
       <span class="contact-descript-header">Contact.</span>
       <p class="contact-descript-text">Want classes? Planning a drama? Need a pianist for your event? Need music for a production? Or simply curious? It's all right here. Fill out the contact form on the right and be sure to write a detailed description.</p>
     </div>
-    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <form class="contact-form reveal-on-scroll" action="https://api.web3forms.com/submit" method="POST">
       <input type="hidden" name="access_key" value="3c1472c9-6adb-4fef-87fa-df6138ada861">
       <label for="name">Name:
-        <input class="info-inputs" type="text" placeholder="First and last" id="name" name="name" required />
+        <input class="info-inputs" type="text" placeholder="First and last" id="name" name="name" aria-label="Input your first and last name" aria-required="true" required />
       </label>
       <label for="email">Email:
-        <input class="info-inputs" type="email" placeholder="example@domain.com" id="email" name="email" required />
+        <input class="info-inputs" type="email" placeholder="example@domain.com" id="email" name="email" aria-label="Input your email address" aria-required="true" required />
       </label>
       <label for="input-descript">Description:
-        <textarea class="input-descript" id="input-descript" name="message" required></textarea>
+        <textarea class="input-descript" id="input-descript" name="message" aria-label="Write your request description" aria-required="true" required></textarea>
       </label>
       <input type="hidden" name="redirect" value="https://web3forms.com/success">
-      <button type="submit">Submit</button>
+      <button type="submit" aria-label="Submit form">Submit</button>
     </form>
   </section>
   <section class="gallery-section">
@@ -454,9 +469,12 @@
     <img src="https://i.postimg.cc/0NFxmqtb/temp-Imagec-Xf-Yz-U.avif">
   </section>
   <footer class="site-footer">
-    <div class="footer-column1">
+    <div class="footer-column reveal-on-scroll">
       <h3>A website by Nicolas Greenwood.</h3>
-      <span>A seventeen-year-old aspiring web developer.</span>
+      <span class="footer-text">A seventeen-year-old aspiring web developer.</span>
+      <span class="footer-text">&copy Nicolas Greenwood. All rights reserved. All information above is for demonstrative purposes only, and may or may not be 100% accurate.</span>
+    </div>
+    <div class="footer-column reveal-on-scroll">
       <a class="profile-links" href="https://github.com/nicolasGreenwood" target="_blank">
       <svg class="github-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3 .3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5 .3-6.2 2.3zm44.2-1.7c-2.9 .7-4.9 2.6-4.6 4.9 .3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3 .7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3 .3 2.9 2.3 3.9 1.6 1 3.6 .7 4.3-.7 .7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3 .7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3 .7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
       <span>My GitHub</span>
@@ -470,29 +488,13 @@
       <span>My CodePen</span>
       </a>
     </div>
-    <div class="footer-column2">
-      <p>
-        I started making this website in May of 2024. Months later, after dozens of rebuilds, a lot of experimentation and weeks of labor, I finally decided to release the design you're looking at.
-      </p>
-      <p>
-        This is only the beginning. Optimization will go on indefinitely. New versions will come out in the future, as well as re-desgins and new features. Oh, and did I mention all of the problems to fix?
-      </p>
-      <p>
-        This is a website for my twin sister Anna, who, apart from being an amazing pianist, is my closest friend and continues to inspire me to become a better human being.
-      </p>
-      <p>
-        “Beauty will save the world.” - Fyodor Dostoevsky
-      </p>
-    </div>
-    <span class="footer-fine-print">&copy Nicolas Greenwood. All rights reserved. All information above is for demonstrative purposes only, and may or may not be 100% accurate.</span>
   </footer>
 
-  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-  <script src="https://unpkg.com/lenis@1.1.14/dist/lenis.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script> 
+  <script src="https://unpkg.com/lenis@1.1.16/dist/lenis.min.js"></script> 
   <script src="app.js"></script>
 </body>
 </html>
