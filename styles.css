@@ -356,6 +356,7 @@ body {
 .info-cell-header {
 	font-family: "Dancing Script", serif;
   margin: 0 10px;
+	padding: 10px;
   font-size: 20vh;
   color: #f2f0ef;
   text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black,
@@ -645,6 +646,7 @@ body {
 }
 
 .contact-descript-header {
+	padding: 10px;
   font-size: 7em;
   margin-left: 5%;
   color: #f1f2ef;
@@ -705,6 +707,7 @@ body {
   width: 90%;
   margin: 5%;
   border: none;
+	padding: 10px;
 }
 
 .info-inputs:focus,
