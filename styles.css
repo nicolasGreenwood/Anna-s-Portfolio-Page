@@ -648,7 +648,7 @@ body {
 .contact-descript-header {
   font-size: 7em;
   margin-left: 5%;
-	margin-top: 10px;
+	line-height: 2;
   color: #f1f2ef;
 }
 
