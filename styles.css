@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
 
 :root {
   --3d-slideshow-spread: 1;
@@ -66,7 +66,7 @@ body {
   width: 100vw;
   padding: 0;
   margin: 0;
-  font-family: "Playfair Display";
+  font-family: "Josefin Sans", serif;
   font-weight: 600;
   background-color: #f2f1ef;
   overflow-x: hidden;
@@ -86,7 +86,9 @@ body {
 
 #play-sound {
 	position: fixed;
-  font-family: "Playfair Display";
+	top: 50vh;
+	left: 50vw;
+  font-family: "Josefin Sans", serif;
 	aspect-ratio: 1/1;
 	padding: 10px;
 	background-color: #3c3c3c;
@@ -352,6 +354,7 @@ body {
 }
 
 .info-cell-header {
+	font-family: "Dancing Script", serif;
   margin: 0 10px;
   font-size: 20vh;
   color: #f2f0ef;
@@ -669,7 +672,7 @@ body {
   color: black;
   outline: none;
   width: 50%;
-  font-family: "Playfair Display";
+  font-family: "Josefin Sans", serif;
   font-size: 1em;
 }
 
@@ -688,14 +691,14 @@ body {
   color: black;
   outline: none;
   appearance: auto;
-  font-family: "Playfair Display";
+  font-family:"Josefin Sans", serif;
   resize: none;
   font-size: 1em;
 }
 
 [type="submit"] {
   background-color: #c1c2be;
-  font-family: "Playfair Display";
+  font-family: "Josefin Sans", serif;
   font-size: 2em;
   font-weight: 600;
   display: block;
